@@ -1,0 +1,69 @@
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+form {
+  display: flex; /* 2. display flex to the rescue */
+  flex-direction: row;
+  justify-content: center;
+}
+
+form .field {
+  font-size: 20px;
+  margin: 0 5%;
+}
+form label {
+  color: azure;
+}
+
+form input {
+  width: 100%;
+  font-size: 24px;
+  outline: none;
+  border-radius: 5px;
+}
+button {
+  font-size: 20px;
+  margin: 20px 0 0;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 20px;
+}
+.dice {
+  text-align: center;
+  display: inline-block;
+}
+
+* {
+  font-family: 'Lobster', cursive;
+}
+body {
+  background-color: #393E46;
+}
+
+h1 {
+  margin: 30px;
+  text-shadow: 5px 0 #232931;
+  font-size: 5rem;
+  color: #4ECCA3;
+}
+
+p {
+  font-size: 2rem;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+}
+
+img {
+  width: 80%;
+}
+
+footer {
+  margin-top: 5%;
+  color: #EEEEEE;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+
+}

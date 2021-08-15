@@ -70,7 +70,7 @@ function showNotification() {
 window.addEventListener('keydown', e =>  {
     // console.log(e.key, e.keyCode);
     let letter = e.key;
-    if(e.keyCode > 65 && e.keyCode <=90) {
+    if(e.keyCode > 64 && e.keyCode <=90) {
         if(selectedWord.includes(letter)) {
             if(!currectLetter.includes(letter)) {
                 currectLetter.push(letter);

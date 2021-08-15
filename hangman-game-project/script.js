@@ -7,9 +7,7 @@ const notification = document.getElementById('notification-container');
 
 const figureParts = document.querySelectorAll('.figure-part');
 
-const data = ['wizard', 'money', 'hidden'];
-
-// 'programming', 'science', 'computer', 'software', 'application', 'engineering', 'interface', 
+const data = ['programming', 'science', 'computer', 'software', 'application', 'engineering', 'interface', 'wizard', 'money', 'hidden'];
 
 let selectedWord = data[Math.floor(Math.random() * data.length)];
 

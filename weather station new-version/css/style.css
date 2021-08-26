@@ -46,7 +46,7 @@ nav ul {
 
 nav ul li {
     margin: 0;
-    padding: 20px;
+    padding: 20px 0;
     border-bottom: 2px solid rgba(200, 200, 200, 0.1);
     background: linear-gradient(to right, var(--secondary-color) 50%, var(--primary-color) 50%);
     background-size: 200% 100%;
@@ -54,6 +54,7 @@ nav ul li {
     transition: all .4s ease-out;
 
 }
+
 
 nav ul li:first-of-type {
     border-top: 2px solid rgba(200, 200, 200, 0.1);
@@ -187,7 +188,7 @@ button:active {
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
-    width: 75%;
+    width: 800px;
     animation: modalopen;
     animation-duration: var(--modal-duration);
 }
@@ -205,6 +206,7 @@ button:active {
 
 .modal-content {
     padding: 20px;
+    background-color: #fff;
 }
 
 .modal-form div {
@@ -232,6 +234,18 @@ button:active {
     padding: 3px 10px;
     background-color: var(--primary-color);
     color: #fff;
+}
+
+.table tr {
+    background-color: rgb(55, 55, 55);
+    color: #fff;
+    transition: 0.4s ease;
+}
+
+.table tr:hover {
+    background-color: aqua;
+    color: #000;
+    transform: scale(1.01);
 }
 
 @keyframes modalopen {

@@ -16,7 +16,7 @@ function exchange() {
         .then(res => res.json())
         .then(data => {
             const  convertedRate = data.conversion_rates[convertedCurrency];
-
+            console.log(data);
             rate.innerHTML = `<h4>1 ${mainCurrency} = ${convertedRate} ${convertedCurrency}</h4>`;
             amount_Two.value = (amount_One.value * convertedRate).toFixed(2);
         })

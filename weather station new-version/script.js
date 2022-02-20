@@ -5,7 +5,9 @@ const graphBtn = document.getElementById("graph");
 const selectOption = document.getElementById("select-option");
 const table = document.getElementById("table");
 
-closeBtn.style.backgroundColor = "red";
+// closeBtn.style.backgroundColor = "red";
+
+
 
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("show-nav");

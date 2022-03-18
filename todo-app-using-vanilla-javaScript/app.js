@@ -1,41 +1,53 @@
-const container = document.querySelector(".container");
-const textBox = document.getElementById("textBox");
-const todoList = document.getElementById("TodoList");
+const todoForm = document.querySelector("form");
+const todoInput = document.querySelector("input");
+const todosElement = document.querySelector(".todos");
+const messageElement = document.querySelector(".message");
 
-const Alarm = () => {
-  const noTaskAlarm = document.createElement("p");
-  noTaskAlarm.textContent = "No task given!";
-  noTaskAlarm.classList.add("no-task");
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-  setTimeout(() => {
-    noTaskAlarm.classList.remove("no-task");
-    noTaskAlarm.textContent = "No task Added!";
-  }, 500);
-  container.appendChild(noTaskAlarm);
+const createTodoElement = (todo) => {
+  const check = todo.checked ? "done" : "";
+
+  const todoList = document.createElement("ul");
+  const listItem = document.createElement("li");
+
+  listItem.innerHTML = `<input id="${todo.id}" type="checkbox"> 
+  <label for="${todo.id} class="mark"></label>
+  <span>${todo.todo}</span>
+  <button class="edit-todo">Edit</button>
+  <button class="delete-todo">Delete</button>`;
+
+  todoList.appendChild(listItem);
+  todosElement.appendChild(todoList);
+
+  listItem.setAttribute("class", `todo-item ${check}`);
+  listItem.setAttribute("data-key", todo.id);
+
+  todoInput.addEventListener("click", (e) => {
+    if (e.target.classList.contains("mark")) {
+      console.log("mark done");
+    }
+  });
 };
 
-document.getElementById("addTask").addEventListener("click", () => {
-  const listElement = document.createElement("li");
-  const checkBox = document.createElement("input");
-  const label = document.createElement("label");
 
-  checkBox.type = "checkbox";
-  checkBox.id = textBox.value;
-  checkBox.value = false;
-
-  label.id = textBox.value;
-  label.appendChild(document.createTextNode(" " + textBox.value));
-
-  listElement.appendChild(checkBox);
-  listElement.appendChild(label);
-
-  textBox.value != "" ? todoList.appendChild(listElement) : Alarm();
-
-  checkBox.addEventListener("click", () => {
-    checkBox.checked
-      ? label.classList.add("mark-done")
-      : label.classList.remove("mark-done");
+const addTodoElement = (id, todo) => {
+  todos.push({
+    id: id,
+    todo: todo,
+    Completed: false,
   });
 
-  textBox.value = ""; // clear input field after adding a task
-});
+  localStorage.setItem("todos", JSON.stringify(todos));
+
+  return { id, todo };
+};
+
+todos.forEach(createTodoElement);
+
+todoForm.onsubmit = (e) => {
+  e.preventDefault();
+  const newTodo = addTodoElement(Date.now().toString(), todoInput.value);
+  createTodoElement(newTodo);
+  todoInput.value = "";
+};

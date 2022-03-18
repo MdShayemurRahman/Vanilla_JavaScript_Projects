@@ -4,26 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital@1&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./style.css" />
-    <title>TODO List</title>
   </head>
   <body>
-    <div class="container">
-      <div class="task-input">
-        <input type="text" class="todo-input" id="textBox" placeholder="Input your task"/>
-        <button type="submit" id="addTask">Add Task</button>
-      </div>
-      <div class="task-list">
-        <ul id="TodoList"></ul>  
-      </div>
-      <!-- <div id="no-task"></div> -->
-    </div>
-    <script src="app.js"></script>
+    <header>
+      <h1>Todo App</h1>
+      <!-- <button id="theme-switcher">
+        <img src="" alt="Change color theme" />
+      </button> -->
+    </header>
+    <main>
+      <form>
+        <input type="text" placeholder="Enter your todo " required />
+        <button type="submit">Add Todo</button>
+      </form>
+      <!-- <p class="message"></p> -->
+      <div class="todos"></div>
+    </main>
+    
+    
+
+    <script src="./app.js"></script>
   </body>
 </html>

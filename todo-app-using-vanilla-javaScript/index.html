@@ -15,22 +15,15 @@
     />
   </head>
   <body>
-    <header>
-      <h1>Todo App</h1>
-      <!-- <button id="theme-switcher">
-        <img src="" alt="Change color theme" />
-      </button> -->
-    </header>
-    <main>
+    <main class="container">
+      <h1 class="app-title">Todo App</h1>
       <form>
         <input type="text" placeholder="Enter your todo " required />
-        <button type="submit">Add Todo</button>
+        <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </form>
       <!-- <p class="message"></p> -->
-      <div class="todos"></div>
+      <ul class="todos todo-list"></ul>
     </main>
-    
-    
 
     <script src="./app.js"></script>
   </body>

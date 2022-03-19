@@ -1,31 +1,101 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
 
+*,
 html {
-  font-size: 62.5%;
-  position: relative;
   box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
 }
 
-html,
 body {
-  min-height: 100%;
+  line-height: 1.4;
+  background-image: url("images/image6.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-ul {
+.container {
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 90vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  overflow-y: auto;
+  color: #fff;
+}
+
+.app-title {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.todo-list {
   list-style: none;
+  margin-bottom: 1rem;
+  padding-left: 0;
 }
 
-img {
-  user-select: none;
+.todo-item {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-body {
-  padding-top: 8rem;
-  width: min(85%, 54rem);
-  margin: auto;
+.todo-item span {
+  flex-grow: 1;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 20px;
+  opacity: 0.8;
 }
 
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 7px;
+  border-radius: 6px;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 1.8em;
+  height: 1.8em;
+  background-color: white;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  vertical-align: middle;
+  /* -webkit-appearance: none; */
+  /* outline: none; */
+  cursor: pointer;
+  stroke: black;
+  stroke-width: 10;
+  
+}
+
+
+
+button {
+  width: 2.2em;
+  height: 2.2em;
+  margin: 0 5px;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  /* text-shadow: 0 0 3px #000; */
+}

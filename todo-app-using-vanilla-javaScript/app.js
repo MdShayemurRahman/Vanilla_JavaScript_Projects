@@ -1,35 +1,37 @@
 const todoForm = document.querySelector("form");
 const todoInput = document.querySelector("input");
-const todosElement = document.querySelector(".todos");
+const todosElement = document.querySelector(".todo-list");
 const messageElement = document.querySelector(".message");
 
 const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 const createTodoElement = (todo) => {
-  const check = todo.checked ? "done" : "";
-
-  const todoList = document.createElement("ul");
+  console.log(todosElement);
   const listItem = document.createElement("li");
 
-  listItem.innerHTML = `<input id="${todo.id}" type="checkbox"> 
-  <label for="${todo.id} class="mark"></label>
-  <span>${todo.todo}</span>
-  <button class="edit-todo">Edit</button>
-  <button class="delete-todo">Delete</button>`;
+  const check = todo.checked ? "done" : "";
 
-  todoList.appendChild(listItem);
-  todosElement.appendChild(todoList);
+  listItem.innerHTML = `
+    <input id="${todo.id}" type="checkbox" name="checkbox"/> 
+    <label for="${todo.id}" class="tick js-tick"></label>
+    <span>${todo.todo}</span>
+    <button class="edit-todo"><i class="fas fa-edit"></i></button>
+    <button class="delete-todo"><i class="fa fa-trash"></i></button>
+  `;
 
   listItem.setAttribute("class", `todo-item ${check}`);
   listItem.setAttribute("data-key", todo.id);
 
-  todoInput.addEventListener("click", (e) => {
-    if (e.target.classList.contains("mark")) {
-      console.log("mark done");
-    }
-  });
+  todosElement.append(listItem);
 };
 
+todosElement.addEventListener("click", (event) => {
+  console.log(event.target.parentElement.dataset.key);
+  if (event.target.classList.contains("js-tick")) {
+    const itemKey = event.target.parentElement.dataset.key;
+    console.log(itemKey);
+  }
+});
 
 const addTodoElement = (id, todo) => {
   todos.push({

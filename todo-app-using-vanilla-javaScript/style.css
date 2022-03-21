@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap");
 
 *,
 html {
@@ -52,8 +52,7 @@ body {
   flex-grow: 1;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  font-size: 20px;
-  opacity: 0.8;
+  font-size: 22px;
 }
 
 form {
@@ -73,18 +72,15 @@ input[type="text"] {
 input[type="checkbox"] {
   width: 1.8em;
   height: 1.8em;
-  background-color: white;
-  border: 5px solid #fff;
   border-radius: 50%;
   vertical-align: middle;
-  /* -webkit-appearance: none; */
-  /* outline: none; */
+  outline: none;
   cursor: pointer;
-  stroke: black;
-  stroke-width: 10;
-  
 }
 
+.done {
+  text-decoration: line-through;
+}
 
 
 button {

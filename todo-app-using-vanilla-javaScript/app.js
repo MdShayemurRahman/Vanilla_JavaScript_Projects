@@ -1,15 +1,13 @@
 const todoForm = document.querySelector("form");
 const todoInput = document.querySelector("input");
-const todosElement = document.querySelector(".todo-list");
-const messageElement = document.querySelector(".message");
+const todoList = document.querySelector(".todo-list");
 
-const todos = JSON.parse(localStorage.getItem("todos")) || [];
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 const createTodoElement = (todo) => {
-  console.log(todosElement);
-  const listItem = document.createElement("li");
+  console.log(todoList);
 
-  const check = todo.checked ? "done" : "";
+  const listItem = document.createElement("li");
 
   listItem.innerHTML = `
     <input id="${todo.id}" type="checkbox" name="checkbox"/> 
@@ -19,19 +17,27 @@ const createTodoElement = (todo) => {
     <button class="delete-todo"><i class="fa fa-trash"></i></button>
   `;
 
-  listItem.setAttribute("class", `todo-item ${check}`);
+  const isChecked = todo.checked ? "done" : "";
+
+  listItem.setAttribute("class", `todo-item ${isChecked} ${todo.id}`);
   listItem.setAttribute("data-key", todo.id);
 
-  todosElement.append(listItem);
-};
+  todoList.append(listItem);
 
-todosElement.addEventListener("click", (event) => {
-  console.log(event.target.parentElement.dataset.key);
-  if (event.target.classList.contains("js-tick")) {
-    const itemKey = event.target.parentElement.dataset.key;
-    console.log(itemKey);
-  }
-});
+  todoItem = document.querySelector(`[data-key='${todo.id}']`);
+  console.log(todos);
+
+  // delete todo..
+  const deleteTodoBtn = listItem.querySelector(".delete-todo");
+  deleteTodoBtn.addEventListener("click", () => {
+    const deletedItem = todos.indexOf(listItem);
+    todos.splice(deletedItem);
+    listItem.remove();
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log(todos);
+  });
+};
 
 const addTodoElement = (id, todo) => {
   todos.push({

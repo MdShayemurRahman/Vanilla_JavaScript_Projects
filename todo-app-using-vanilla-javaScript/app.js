@@ -1,8 +1,10 @@
 const todoForm = document.querySelector("form");
 const todoInput = document.querySelector("input");
 const todoList = document.querySelector(".todo-list");
+const backgroundChanger = document.querySelector(".change-background");
 
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
+let imageNum = 1;
 
 const createTodoElement = (todo) => {
   console.log(todoList);
@@ -59,3 +61,8 @@ todoForm.onsubmit = (e) => {
   createTodoElement(newTodo);
   todoInput.value = "";
 };
+
+backgroundChanger.addEventListener("click", (imageArr) => {
+  imageNum < 7 ? imageNum++ : (imageNum = 1);
+  document.body.style.backgroundImage = `url("./images/image${imageNum}.jpg")`;
+});

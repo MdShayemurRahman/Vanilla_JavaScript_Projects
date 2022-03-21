@@ -8,11 +8,12 @@ html {
 
 body {
   line-height: 1.4;
-  background-image: url("images/image6.jpg");
+  background-image: url("images/image1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 
 .container {
   border-radius: 16px;
@@ -25,6 +26,7 @@ body {
   margin-bottom: 5vh;
   overflow-y: auto;
   color: #fff;
+  background-color: #272822;
 }
 
 .app-title {
@@ -81,7 +83,6 @@ input[type="checkbox"] {
 .done {
   text-decoration: line-through;
 }
-
 
 button {
   width: 2.2em;

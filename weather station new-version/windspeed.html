@@ -19,14 +19,12 @@
             <h1>TAMK Weather Station</h1>
         </div>
         <ul>
-            <li class="active">
-                <a href="./index.html" class="menu" id="latest">Latest</a>
-            </li>
+            <li><a href="./index.html" class="menu" id="latest">Latest</a></li>
             <li>
                 <a href="./winddirection.html" class="menu" id="wind_direction">Wind_direction</a
           >
         </li>
-        <li>
+        <li class="active">
           <a href="./windspeed.html" class="menu" id="wind_speed">Wind_speed</a>
             </li>
             <li>
@@ -89,23 +87,28 @@
                     </div>
                 </div>
 
-                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js"></script>
-
                 <script>
                     const selectOption = document.getElementById("select-option");
-                    selectOption.style.visibility = "hidden";
+
+                    selectOption.addEventListener("change", (e) => {
+                        selectedValue = e.target.value;
+                        getTableData(selectedValue);
+                    });
                     async function getTableData(value = "") {
                         const res = await fetch(
-                            "https://webapi19sa-1.course.tamk.cloud/v1/weather/"
+                            "https://webapi19sa-1.course.tamk.cloud/v1/weather/" +
+                            "wind_speed" +
+                            "/" +
+                            value
                         );
-
                         const data = await res.json();
-
-                        showTableAndChart(data, "", false);
+                        console.log(data);
+                        showTableAndChart(data, "wind_speed", true);
                     }
                 </script>
 
                 <script src="./js/script.js"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js"></script>
 </body>
 
 </html>

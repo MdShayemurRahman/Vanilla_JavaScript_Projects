@@ -19,10 +19,8 @@
             <h1>TAMK Weather Station</h1>
         </div>
         <ul>
+            <li><a href="./index.html" class="menu" id="latest">Latest</a></li>
             <li class="active">
-                <a href="./index.html" class="menu" id="latest">Latest</a>
-            </li>
-            <li>
                 <a href="./winddirection.html" class="menu" id="wind_direction">Wind_direction</a
           >
         </li>
@@ -93,15 +91,21 @@
 
                 <script>
                     const selectOption = document.getElementById("select-option");
-                    selectOption.style.visibility = "hidden";
+
+                    selectOption.addEventListener("change", (e) => {
+                        selectedValue = e.target.value;
+                        getTableData(selectedValue);
+                    });
                     async function getTableData(value = "") {
                         const res = await fetch(
-                            "https://webapi19sa-1.course.tamk.cloud/v1/weather/"
+                            "https://webapi19sa-1.course.tamk.cloud/v1/weather/" +
+                            "wind_direction" +
+                            "/" +
+                            value
                         );
-
                         const data = await res.json();
-
-                        showTableAndChart(data, "", false);
+                        console.log(data);
+                        showTableAndChart(data, "wind_direction", true);
                     }
                 </script>
 
